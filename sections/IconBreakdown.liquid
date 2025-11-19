@@ -47,7 +47,7 @@ body #our-quality .icon-item{display:flex;gap:15px; border-right:none;border-bot
     {% for icon in section.blocks %}
       <div class="icon-item  cst-home-icon-sec-item">
         {% if icon.settings.image != nil %}
-          <div class="image" data-aos="zoom-in">
+          <div class="image zoom-on-scroll">
             <img class="lazyload cst-home-icon-sec-item-img" data-sizes="auto" src="{% render 'image_placeholder', image: icon.settings.image %}" data-srcset="{% render 'lazy_src', image: icon.settings.image %}" />
           </div>
         {% endif %}

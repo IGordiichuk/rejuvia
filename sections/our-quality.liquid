@@ -29,7 +29,7 @@
     {% for icon in section.blocks %}
       <div class="icon-item flex justify-content-start align-items-center direction-column">
         {% if icon.settings.image != nil %}
-          <div class="image" data-aos="zoom-in">
+          <div class="image zoom-on-scroll">
             <img class="lazyload" data-sizes="auto" src="{% render 'image_placeholder', image: icon.settings.image %}" data-srcset="{% render 'lazy_src', image: icon.settings.image %}" />
           </div>
         {% endif %}
@@ -48,7 +48,6 @@
   $(function() {
     $(document).ready(function() {
       $('html').removeClass('no-js');
-      AOS.init();
     })
   })
 </script>

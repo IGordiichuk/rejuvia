@@ -101,6 +101,18 @@ p {margin: 0 0 1em 0;}
 //.animation {@include animation(0.2s);}
 //.ease-animation {@include ease-animation(0.2s); }
 .ease-animation-slow {@include ease-animation(0.15s); }
+
+/* Zoom on scroll animation - replaces AOS library */
+.zoom-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.zoom-on-scroll.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .isNotMobile a:hover { color: #eac78b }
 input, textarea {font-family: 'Roboto', sans-serif; color: #000000;}
 
@@ -156,7 +168,7 @@ input.error, textarea.error {border-color: #ff0202 !important;}
     width: 100%;
 
   cursor: pointer;
-  @include ease-animation(0.4s);
+  @include ease-animation(0.2s);
 }
 .btn__custom-atc {
   border-radius: 100px;
@@ -168,13 +180,13 @@ input.error, textarea.error {border-color: #ff0202 !important;}
 .btn, input.btn {-moz-box-shadow: 7px 5px 0px 0px #0c1b26; -webkit-box-shadow: 7px 5px 0px 0px #0c1b26; box-shadow: 7px 5px 0px 0px #000000; background-color:#ffffff !important; border:1px solid #000000; display:inline-block; cursor:pointer; color:#0c1b26 !important; font-size:17px; text-transform: uppercase; letter-spacing: 0.08em; 	font-weight: 900; padding:16px 31px; text-decoration:none;}
 .isNotMobile .btn:hover, input.btn:hover { color: #ffffff !important; background: #000000 !important; border:1px solid #000000 !important; display:inline-block; transform: scale(1,1) rotate(0)skew(0,0) translate(43px,9px); -webkit-transform: scale(1,1) rotate(0)skew(0,0) translate(5px,3px); -moz-transform: scale(1,1) rotate(0)skew(0,0) translate(5px,3px); transform-origin: 0% 0%; box-shadow: none; -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;}*/
 /* V2 */
-.btn.v2, input.btn.v2 {display: inline-block; line-height: 100%; background-color: #bbbbbb; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.4s);}
+.btn.v2, input.btn.v2 {display: inline-block; line-height: 100%; background-color: #bbbbbb; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.2s);}
 .isNotMobile .btn.v2:hover, input.btn.v2:hover {background-color: #000000; color: #ffffff; border: 0; }
 /* V3 */
-.btn.v3, input.btn.v3 {display: inline-block; line-height: 100%; background-color: #0089ff; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.4s);}
+.btn.v3, input.btn.v3 {display: inline-block; line-height: 100%; background-color: #0089ff; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.2s);}
 .isNotMobile .btn.v3:hover, input.btn.v3:hover {background-color: #000000; color: #ffffff; border: 0; }
 /* V4 */
-.btn.v4, input.btn.v4 {display: inline-block; line-height: 100%; background-color: #0089ff; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.4s);}
+.btn.v4, input.btn.v4 {display: inline-block; line-height: 100%; background-color: #0089ff; color: #ffffff; border: 0; -webkit-border-radius: 0em; -moz-border-radius: 0em; border-radius: 0em; padding: 1em 2em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; @include ease-animation(0.2s);}
 .isNotMobile .btn.v4:hover, input.btn.v4:hover {background-color: #000000; color: #ffffff; border: 0; -ms-transform: scale(1.1, 1.1); -webkit-transform: scale(1.1, 1.1); transform: scale(1.1, 1.1);}
 
 .fa {font-family: 'FontAwesome' !important;}
@@ -873,11 +885,11 @@ a.pswp__share--download:hover{background:#DDD}
 ******************** ANIMATE.css ********************
 */
 @charset "UTF-8";
-.animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+.animated{-webkit-animation-duration:0.4s;animation-duration:0.4s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
 .animated.infinite{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}
-.animated.hinge{-webkit-animation-duration:2s;animation-duration:2s}
-.animated.bounceIn,.animated.bounceOut{-webkit-animation-duration:.75s;animation-duration:.75s}
-.animated.flipOutX,.animated.flipOutY{-webkit-animation-duration:.75s;animation-duration:.75s}
+.animated.hinge{-webkit-animation-duration:0.6s;animation-duration:0.6s}
+.animated.bounceIn,.animated.bounceOut{-webkit-animation-duration:0.5s;animation-duration:0.5s}
+.animated.flipOutX,.animated.flipOutY{-webkit-animation-duration:0.5s;animation-duration:0.5s}
 @-webkit-keyframes bounceIn {
 0%,20%,40%,60%,80%,100%{-webkit-animation-timing-function:cubic-bezier(0.215,0.610,0.355,1.000);animation-timing-function:cubic-bezier(0.215,0.610,0.355,1.000)}
 0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}

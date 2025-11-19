@@ -45,9 +45,6 @@
   <link rel="canonical" href="{{ canonical_url }}" />
   <link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
 
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
   {%- include 'fb_open_graph' -%}
   {%- include 'fonts' -%}
   {% render 'head-styles' %}
@@ -135,6 +132,27 @@
         let height = translateValue - scrollTop;
         header.css('transform', `translateY(-${translateValue}px)`);
       });
+
+      // Zoom on scroll animation - replaces AOS library
+      if ('IntersectionObserver' in window) {
+        const zoomObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              zoomObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.zoom-on-scroll').forEach(el => {
+          zoomObserver.observe(el);
+        });
+      } else {
+        // Fallback for older browsers - show immediately
+        document.querySelectorAll('.zoom-on-scroll').forEach(el => {
+          el.classList.add('visible');
+        });
+      }
     });
   </script>
 </body>
