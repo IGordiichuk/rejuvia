@@ -7,6 +7,8 @@
   #our-quality h2 {letter-spacing: normal; color: #0A0A0A; text-align: center; font-size: 1.786em; font-family: "Nexa"; font-weight: 800; text-transform: none; line-height: 1em; max-width: 40em; margin: 0 auto;}
   #our-quality .icon-item .text {color: #0A0A0A; font-size: 1em; letter-spacing: normal;}
   #our-quality .btn {background-color: #EAC78B; font-weight: 700; letter-spacing: normal; color: #0A0A0A; text-transform: none; border-radius: 2em; padding: 1.2em 4em;}
+  #our-quality .icon-item .image {opacity: 0; transform: scale(0.8); transition: opacity 0.4s ease-out, transform 0.4s ease-out;}
+  #our-quality .icon-item .image.visible {opacity: 1; transform: scale(1);}
   
   @media all and (max-width: 900px) {
     #our-quality .icons-section {flex-direction: column; align-items: center;}
@@ -29,7 +31,7 @@
     {% for icon in section.blocks %}
       <div class="icon-item flex justify-content-start align-items-center direction-column">
         {% if icon.settings.image != nil %}
-          <div class="image" data-aos="zoom-in">
+          <div class="image zoom-in-effect">
             <img class="lazyload" data-sizes="auto" src="{% render 'image_placeholder', image: icon.settings.image %}" data-srcset="{% render 'lazy_src', image: icon.settings.image %}" />
           </div>
         {% endif %}
@@ -48,7 +50,27 @@
   $(function() {
     $(document).ready(function() {
       $('html').removeClass('no-js');
-      AOS.init();
+
+      // Simple intersection observer for zoom effect
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('#our-quality .zoom-in-effect').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for older browsers - just show the images
+        document.querySelectorAll('#our-quality .zoom-in-effect').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
     })
   })
 </script>
