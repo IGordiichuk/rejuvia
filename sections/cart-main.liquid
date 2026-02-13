@@ -209,7 +209,7 @@
             </div>
 
             <div class="title">Your Cart is Empty</div>
-            <div class="second-title">Shop our all-natural oral sprays today.</div>
+            <div class="second-title">Start Shopping Rejuvia Today</div>
             <div class="btn-outline-container" align="center">
                 <a href="https://www.rejuvia.co/collections/more-products" class="btn {-moz-box-shadow: 7px 5px 0px 0px #0c1b26; -webkit-box-shadow: 7px 5px 0px 0px #0c1b26; -moz-border-radius: 0px !important; -webkit-border-radius: 0px !important; box-shadow: 7px 5px 0px 0px #0c1b26; background-color:#ffffff !important; border:1px solid #000000; display:inline-block; cursor:pointer; color:#0c1b26 !important; font-size:17px; letter-spacing: {{settings.button_spacing}}; 	font-weight: {{settings.button_weight}}; padding:30px 10px; text-decoration:none;}">
                     <span>TRY REJUVIA</span>
@@ -242,7 +242,7 @@
                         {% endif %}
           </span>
                 </div>
-                <a href="{{ routes.all_products_collection_url }}" class="cart-unempty__items">
+                <a href="https://www.rejuvia.co/collections/more-products" class="cart-unempty__items">
                     <h5 class="cart-unempty__items--text">
                         Continue Shopping
                     </h5>
@@ -431,7 +431,7 @@
                         <h2 class="column-title custom_subtitle_font text-left">Summary</h2>
                         <div class="flex subtotal align-items-center justify-content-between custom_subtitle_font">
                             <div class="column cart-unempty__column">
-                                Total:
+                                Subtotal:
                             </div>
                             <div class="column custom_text_font">
                                 {% assign subtotal = 0 %}
@@ -471,7 +471,7 @@
 
                         <div class="flex subtotal total align-items-center justify-content-between custom_subtitle_font">
                             <div class="column cart-unempty__column">
-                                Subtotal:
+                                Total:
                             </div>
                             <div class="column custom_text_font">
                                 {{ cart.total_price | money }}
@@ -490,7 +490,7 @@
 
                         <div class="buttons custom_button_font text-stretch-to-fill">
                             <button type="submit" class="btn custom_button_font" name="checkout">
-                                <span>PROCEED TO CHECKOUT</span>
+                                <span>GO TO CHECKOUT</span>
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="arrow-down">
                                         <path id="Vector" d="M3.5 12H21.5M21.5 12L15.5 18M21.5 12L15.5 6" stroke="white" stroke-linecap="round"/>
@@ -568,7 +568,7 @@
       "type": "text",
       "id": "title_1",
       "label": "Title 1",
-      "default": "Free Shipping $69+"
+      "default": "Free Shipping $79+"
     },
     {
       "type": "image_picker",
@@ -579,7 +579,7 @@
       "type": "text",
       "id": "title_2",
       "label": "Title 2",
-      "default": "30-Day Moneyback"
+      "default": "90-Day Moneyback"
     },
     {
       "type": "image_picker",

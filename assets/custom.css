@@ -169,7 +169,7 @@ body .hero-carousel .overlay a:after {
 }
 
 .testimonials .testimonials-inner .image-section {
-  margin-botom: 5px;
+  margin-bottom: 5px;
 }
 
 .testimonials .testimonials-inner .image-section img {
@@ -1325,14 +1325,19 @@ main:has(.shopify-policy__container) {
 
 #footer .mailing-list__input {
   padding: 18px;
-  color: #FFFFFF48;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
   border-radius: 8px;
   border: 1px solid #fff;
   margin-bottom: 16px;
-  background: transparent;
+  background: rgba(103, 38, 102, 0.85);
+}
+
+#footer .mailing-list__input::placeholder {
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 #footer .mailing-list__btn {
@@ -1355,7 +1360,7 @@ main:has(.shopify-policy__container) {
 }
 
 #footer .mailing-list input::placeholder {
-  color: #5C5C5C;
+  color: #FFFFFF;
   font-family: HelveticaNeueL, sans-serif;
   line-height: 100%;
 }
@@ -1663,4 +1668,5 @@ main:has(.shopify-policy__container) {
       margin-bottom: 16px;
       letter-spacing: -0.32px;
   }
+}
 }

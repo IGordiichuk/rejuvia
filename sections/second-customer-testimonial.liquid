@@ -1,11 +1,15 @@
 {{ 'customer-testimonials.css' | asset_url | stylesheet_tag }}
 
-<!-- Required Core Stylesheet -->
+<!-- Required Core Stylesheet - Async loaded -->
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+  media="print"
   onload="this.media='all'"
 >
+<noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+</noscript>
 
 {% style %}
 
@@ -199,8 +203,8 @@
       </div>
 
       <div class="eg-glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">{% render 'arrow-circle-left' %}</button>
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">{% render 'arrow-circle-right' %}</button>
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous testimonial">{% render 'arrow-circle-left' %}</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next testimonial">{% render 'arrow-circle-right' %}</button>
       </div>
     </div>
 </div>
